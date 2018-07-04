@@ -12,7 +12,5 @@ function setThisWithApply(fn, obj, args) {
 }
 
 function returnNewFunctionOf(fn, obj) {
-  return Array.prototype.fn.bind(obj)
+  return obj.fn = Array.prototype.fn.bind(obj)
 }
-
-
