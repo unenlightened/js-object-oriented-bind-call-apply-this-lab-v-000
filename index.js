@@ -12,24 +12,7 @@ function setThisWithApply(fn, obj, args) {
 }
 
 function returnNewFunctionOf(fn, obj) {
-  
+  return Array.prototype.fn.bind(obj)
 }
 
-describe('returnNewFunctionOf', function(){
-  let fred;
-  let functionToBeCopied;
 
-  beforeEach(function(){
-    functionToBeCopied = function (){
-      return this
-    }
-   fred = { name: 'fred'}
-  })
-  it('returns a new function', function(){
-    expect(returnNewFunctionOf(functionToBeCopied)).to.not.equal(functionToBeCopied)
-    expect(typeof returnNewFunctionOf(functionToBeCopied)).to.equal("function")
-  })
-  it('sets the this argument to fred', function(){
-    let newFunction = returnNewFunctionOf(functionToBeCopied, fred)
-    expect(newFunction()).to.equal(fred)
-  })
